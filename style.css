@@ -19,11 +19,11 @@ button {
     border-radius: 5px;
     margin-bottom: 20px;
     font-size: 16px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease-in-out;
 }
 
 button:hover {
-    background-color: #2868b2;
+    background-color: blue;
 }
 
 .form-container {
@@ -34,7 +34,8 @@ button:hover {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     margin-bottom: 20px;
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
 }
 
 .form-container form input {
@@ -55,11 +56,11 @@ button:hover {
 .styled-table {
     border-collapse: collapse;
     width: 100%;
-    max-width: 800px;
     margin-top: 25px;
     background-color: #ffffff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     font-size: 16px;
+    overflow-x: auto;
 }
 
 .styled-table thead {
@@ -71,6 +72,9 @@ button:hover {
 .styled-table th, .styled-table td {
     padding: 12px 15px;
     border-bottom: 1px solid #dddddd;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .styled-table tbody tr:nth-child(even) {
@@ -93,66 +97,55 @@ button:hover {
 }
 
 .styled-table .remove-btn:hover {
-    background-color: #b32400;
-}
-.styled-table th,
-.styled-table td {
-    padding: 12px 15px;
-    border-bottom: 1px solid #dddddd;
-    white-space: nowrap; /* Prevents text from wrapping */
-    overflow: hidden; /* Hides any content that overflows */
-    text-overflow: ellipsis; /* Displays an ellipsis (...) to indicate overflow */
+    background-color: red;
 }
 
-/* Adjust width as needed */
-.styled-table th:nth-child(1),
-.styled-table td:nth-child(1) {
-    width: 5%; /* Serial column */
-}
-
-.styled-table th:nth-child(2),
-.styled-table td:nth-child(2) {
-    width: 10%; /* Roll Number column */
-}
-
-.styled-table th:nth-child(3),
-.styled-table td:nth-child(3),
-.styled-table th:nth-child(4),
-.styled-table td:nth-child(4) {
-    width: 20%; /* Name and Email columns */
-}
-
-.styled-table th:nth-child(5),
-.styled-table td:nth-child(5) {
-    width: 15%; /* Number column */
-}
-
-.styled-table th:nth-child(6),
-.styled-table td:nth-child(6) {
-    width: 10%; 
-}
-
-.styled-table th:nth-child(7),
-.styled-table td:nth-child(7) {
-    width: 10%; 
-}
 ::-webkit-scrollbar {
     width: 10px;
 }
 
-
 ::-webkit-scrollbar-track {
     background: #f1f1f1;
 }
-
 
 ::-webkit-scrollbar-thumb {
     background: #3085D6;
     border-radius: 5px;
 }
 
-
 ::-webkit-scrollbar-thumb:hover {
     background: #888;
 }
 
+@media (max-width: 768px) {
+    .form-container {
+        width: 100%;
+        max-width: none;
+        padding: 15px;
+    }
+
+    .styled-table {
+        font-size: 14px;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-container form input {
+        width: calc(100% - 16px);
+        padding: 8px;
+    }
+
+    .styled-table th, .styled-table td {
+        padding: 8px 10px;
+    }
+
+    button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}

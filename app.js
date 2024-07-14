@@ -6,7 +6,7 @@ let email = document.getElementById('email');
 let number = document.getElementById('number');
 let age = document.getElementById('age');
 let submitBtn = document.getElementById('submitBtn');
-
+let course = document.getElementById('course')
 addBtn.addEventListener('click', () => {
     form.style.display = 'block';
 });
@@ -30,7 +30,8 @@ submitBtn.addEventListener('click', () => {
                 userName: userName.value,
                 email: email.value,
                 number: number.value,
-                age: age.value
+                age: age.value,
+                course : course.value
             };
             studentData.push(newEntry);
             localStorage.setItem('studentData', JSON.stringify(studentData));
@@ -43,7 +44,8 @@ submitBtn.addEventListener('click', () => {
             <td>${newEntry.email}</td>
             <td>${newEntry.number}</td>
             <td>${newEntry.age}</td>
-            <td><button class="remove-btn" data-serial="${newEntry.serial}"><i class="fa-solid fa-trash"></i></button></td>
+            <td>${newEntry.course}</td>
+            <td><button class="remove-btn" data-serial="${newEntry.serial}">Delete</button></td>
             `;
             tbody.appendChild(row);
 
@@ -56,6 +58,7 @@ submitBtn.addEventListener('click', () => {
             email.value = '';
             number.value = '';
             age.value = '';
+            course.value = ''
             form.style.display = 'none';
             row.querySelector('.remove-btn').addEventListener('click', removeEntry);
         }
@@ -74,7 +77,8 @@ let reloadFunction = () => {
         <td>${x.email}</td>
         <td>${x.number}</td>
         <td>${x.age}</td>
-        <td><button class="remove-btn" data-serial="${x.serial}"><i class="fa-solid fa-trash"></i></button></td>
+        <td>${x.course}</td>
+        <td><button class="remove-btn" data-serial="${x.serial}">Delete</button></td>
         `;
         tbody.appendChild(row);
         row.querySelector('.remove-btn').addEventListener('click', removeEntry);
@@ -83,7 +87,7 @@ let reloadFunction = () => {
 let removeEntry = (e) => {
     Swal.fire({
         title: "Are you sure?",
-        text: "You Want To Delete This Dat",
+        text: "You Want To Delete This Data",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -92,6 +96,7 @@ let removeEntry = (e) => {
       }).then((result) => {
         if (result.isConfirmed) {
             let button = e.target
+            console.log(button);
             let serial = button.getAttribute('data-serial')
             let studentData = JSON.parse(localStorage.getItem('studentData'));
             let updatedData = []
