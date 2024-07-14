@@ -3,41 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Student Data Management</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <button id="addBtn">Add</button>
+    <button id="addBtn">Add New Entry</button>
 
-    <div id="form">
+    <div id="form" class="form-container">
         <form action="">
-            <input required type="text" placeholder="Enter Your Name......." name="" id="name">
-            <br><br>
-            <input required type="email" placeholder="Enter Your Email......." name="" id="email">
-            <br><br>
-            <input required type="number" placeholder="Enter Your Number......." name="" id="number">
-            <br><br>
-            <input required type="number" placeholder="Enter Your Age...." maxlength="2" name="" id="age">
-            <br><br>
+            <input required type="text" placeholder="Enter Your Name" id="name">
+            <input required type="email" placeholder="Enter Your Email" id="email">
+            <input required type="tel" placeholder="Enter Your Number" id="number">
+            <input required type="tel" placeholder="Enter Your Age" id="age" maxlength="2">
         </form>
         <button id="submitBtn">Submit</button>
     </div>
-<center>
-    <table>
-        <thead>    
-            <tr>
-                <th>Your Name</th>
-                <th>Your Email</th>
-                <th>Your Number</th>
-                <th>Your Age</th>
-            </tr>
-        </thead>
-        <tbody id="tbody">
 
-        </tbody>
-    </table>
-</center>
+    <center>
+        <table class="styled-table">
+            <thead>    
+                <tr>
+                    <th>Serial</th>
+                    <th>Roll Number</th>
+                    <th>Your Name</th>
+                    <th>Your Email</th>
+                    <th>Your Number</th>
+                    <th>Your Age</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+            </tbody>
+        </table>
+    </center>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="app.js"></script>
 </body>
 </html>

@@ -1,10 +1,158 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-*{
-    font-family: poppins;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-#form{
+
+button {
+    background-color: #3085d6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2868b2;
+}
+
+.form-container {
     display: none;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    width: 300px;
 }
-th{
-    width: 200px;
+
+.form-container form input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
 }
+
+.form-container form input:focus {
+    outline: none;
+    border-color: #3085d6;
+}
+
+.styled-table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 25px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+}
+
+.styled-table thead {
+    background-color: #3085d6;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th, .styled-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-child {
+    border-bottom: 2px solid #3085d6;
+}
+
+.styled-table .remove-btn {
+    background-color: #d33;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.styled-table .remove-btn:hover {
+    background-color: #b32400;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #dddddd;
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: hidden; /* Hides any content that overflows */
+    text-overflow: ellipsis; /* Displays an ellipsis (...) to indicate overflow */
+}
+
+/* Adjust width as needed */
+.styled-table th:nth-child(1),
+.styled-table td:nth-child(1) {
+    width: 5%; /* Serial column */
+}
+
+.styled-table th:nth-child(2),
+.styled-table td:nth-child(2) {
+    width: 10%; /* Roll Number column */
+}
+
+.styled-table th:nth-child(3),
+.styled-table td:nth-child(3),
+.styled-table th:nth-child(4),
+.styled-table td:nth-child(4) {
+    width: 20%; /* Name and Email columns */
+}
+
+.styled-table th:nth-child(5),
+.styled-table td:nth-child(5) {
+    width: 15%; /* Number column */
+}
+
+.styled-table th:nth-child(6),
+.styled-table td:nth-child(6) {
+    width: 10%; 
+}
+
+.styled-table th:nth-child(7),
+.styled-table td:nth-child(7) {
+    width: 10%; 
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #3085D6;
+    border-radius: 5px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
