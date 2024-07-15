@@ -67,6 +67,7 @@ button:hover {
     background-color: #3085d6;
     color: #ffffff;
     text-align: left;
+    text-shadow: 0.0px 3.0px 0.02px #000, -1.9px -2.3px 0.02px #000, 2.9px 0.6px 0.02px #000, -2.7px 1.3px 0.02px #000, 1.2px -2.7px 0.02px #000, 0.7px 2.9px 0.02px #000, -2.4px -1.8px 0.02px #000, 3.0px -0.1px 0.02px #000, -2.3px 2.0px 0.02px #000, 0.5px -3.0px 0.02px #000, 1.4px 2.6px 0.02px #000, -2.8px -1.2px 0.02px #000, 2.9px -0.8px 0.02px #000, -1.7px 2.5px 0.02px #000, -0.2px -3.0px 0.02px #000, 2.0px 2.2px 0.02px #000, -3.0px -0.4px 0.02px #000, 2.6px -1.5px 0.02px #000, -1.1px 2.8px 0.02px #000, -0.9px -2.8px 0.02px #000, 2.5px 1.6px 0.02px #000, -3.0px 0.3px 0.02px #000, 2.1px -2.1px 0.02px #000, -0.3px 3.0px 0.02px #000
 }
 
 .styled-table th, .styled-table td {
