@@ -22,8 +22,8 @@ submitBtn.addEventListener('click', () => {
         confirmButtonText: "Yes, Add it!"
     }).then((result) => {
         if (result.isConfirmed) {
-            let studentData = JSON.parse(localStorage.getItem('studentData')) || [];
-            let rollNum = Math.floor(100000 + Math.random() * 900000); // Generate new roll number
+            let studentData = JSON.parse(localStorage.getItem('studentData'));
+            let rollNum = Math.floor(100000 + Math.random() * 900000); 
             let newEntry = {
                 serial: studentData.length + 1,
                 roll: rollNum,
@@ -35,7 +35,6 @@ submitBtn.addEventListener('click', () => {
             };
             studentData.push(newEntry);
             localStorage.setItem('studentData', JSON.stringify(studentData));
-
             let row = document.createElement('tr');
             row.innerHTML = `
             <td>${newEntry.serial}</td>
@@ -123,3 +122,5 @@ let removeEntry = (e) => {
 
 }
 reloadFunction();
+
+
