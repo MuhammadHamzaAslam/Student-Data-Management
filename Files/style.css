@@ -20,7 +20,6 @@ button {
     margin-bottom: 20px;
     font-size: 16px;
     transition: background-color 0.3s ease-in-out;
-    
 }
 
 button:hover {
@@ -39,7 +38,7 @@ button:hover {
     max-width: 300px;
 }
 
-.form-container form input {
+.form-container form input, .form-container form select {
     width: calc(100% - 20px);
     padding: 10px;
     margin: 8px 0;
@@ -47,9 +46,10 @@ button:hover {
     border-radius: 5px;
     font-size: 14px;
     transition: border-color 0.3s ease;
+    
 }
 
-.form-container form input:focus {
+.form-container form input:focus, .form-container form select:focus {
     outline: none;
     border-color: #3085d6;
 }
@@ -137,7 +137,7 @@ button:hover {
 }
 
 @media (max-width: 480px) {
-    .form-container form input {
+    .form-container form input, .form-container form select {
         width: calc(100% - 16px);
         padding: 8px;
     }

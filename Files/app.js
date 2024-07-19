@@ -12,31 +12,22 @@ addBtn.addEventListener('click', () => {
 });
 
 submitBtn.addEventListener('click', () => {
-    Swal.fire({
-        title: "Are you sure?",
-        text: "You Want To Add The Data",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, Add it!"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            let studentData = JSON.parse(localStorage.getItem('studentData'));
-            let rollNum = Math.floor(100000 + Math.random() * 900000); 
-            let newEntry = {
-                serial: studentData.length + 1,
-                roll: rollNum,
-                userName: userName.value,
-                email: email.value,
-                number: number.value,
-                age: age.value,
-                course : course.value
-            };
-            studentData.push(newEntry);
-            localStorage.setItem('studentData', JSON.stringify(studentData));
-            let row = document.createElement('tr');
-            row.innerHTML = `
+
+    let studentData = JSON.parse(localStorage.getItem('studentData')) || [];
+    let rollNum = Math.floor(100000 + Math.random() * 900000);
+    let newEntry = {
+        serial: studentData.length + 1,
+        roll: rollNum,
+        userName: userName.value,
+        email: email.value,
+        number: number.value,
+        age: age.value,
+        course: course.value
+    };
+    studentData.push(newEntry);
+    localStorage.setItem('studentData', JSON.stringify(studentData));
+    let row = document.createElement('tr');
+    row.innerHTML = `
             <td>${newEntry.serial}</td>
             <td>${newEntry.roll}</td>
             <td>${newEntry.userName}</td>
@@ -44,29 +35,28 @@ submitBtn.addEventListener('click', () => {
             <td>${newEntry.number}</td>
             <td>${newEntry.age}</td>
             <td>${newEntry.course}</td>
-            <td><button class="remove-btn" data-serial="${newEntry.serial}">Delete</button></td>
+            <td><i class="fa-solid fa-trash remove-btn" data-serial="${x.serial}"></i></td>
             `;
-            tbody.appendChild(row);
+    tbody.appendChild(row);
 
-            Swal.fire({
-                title: "Submitted!",
-                text: "Your data has been submitted.",
-                icon: "success"
-            });
-            userName.value = '';
-            email.value = '';
-            number.value = '';
-            age.value = '';
-            course.value = ''
-            form.style.display = 'none';
-            row.querySelector('.remove-btn').addEventListener('click', removeEntry);
-        }
+    Swal.fire({
+        title: "Submitted!",
+        text: "Your data has been submitted.",
+        icon: "success"
     });
-});
+    userName.value = '';
+    email.value = '';
+    number.value = '';
+    age.value = '';
+    course.value = ''
+    form.style.display = 'none';
+    row.querySelector('.remove-btn').addEventListener('click', removeEntry);
+}
+);
 
 
 let reloadFunction = () => {
-    let studentData = JSON.parse(localStorage.getItem('studentData'));
+    let studentData = JSON.parse(localStorage.getItem('studentData')) || [];
     for (const x of studentData) {
         let row = document.createElement('tr');
         row.innerHTML = `
@@ -77,7 +67,7 @@ let reloadFunction = () => {
         <td>${x.number}</td>
         <td>${x.age}</td>
         <td>${x.course}</td>
-        <td><button class="remove-btn" data-serial="${x.serial}">Delete</button></td>
+     <i class="fa-solid fa-trash remove-btn" data-serial="${x.serial}"></i></td>
         `;
         tbody.appendChild(row);
         row.querySelector('.remove-btn').addEventListener('click', removeEntry);
@@ -92,7 +82,7 @@ let removeEntry = (e) => {
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
         confirmButtonText: "Yes, delete it!"
-      }).then((result) => {
+    }).then((result) => {
         if (result.isConfirmed) {
             let button = e.target
             console.log(button);
@@ -108,17 +98,17 @@ let removeEntry = (e) => {
             for (const x of updatedData) {
                 x.serial = index++
             }
-        
+
             localStorage.setItem('studentData', JSON.stringify(updatedData));
             tbody.innerHTML = ''
             reloadFunction()
-          Swal.fire({
-            title: "Deleted!",
-            text: "Your Data has been deleted.",
-            icon: "success"
-          });
+            Swal.fire({
+                title: "Deleted!",
+                text: "Your Data has been deleted.",
+                icon: "success"
+            });
         }
-      });
+    });
 
 }
 reloadFunction();
