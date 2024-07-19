@@ -35,7 +35,7 @@ submitBtn.addEventListener('click', () => {
             <td>${newEntry.number}</td>
             <td>${newEntry.age}</td>
             <td>${newEntry.course}</td>
-            <td><i class="fa-solid fa-trash remove-btn" data-serial="${x.serial}"></i></td>
+            <td><button class="remove-btn" data-serial="${newEntry.serial}">Delete</button></td>
             `;
     tbody.appendChild(row);
 
@@ -67,7 +67,7 @@ let reloadFunction = () => {
         <td>${x.number}</td>
         <td>${x.age}</td>
         <td>${x.course}</td>
-     <i class="fa-solid fa-trash remove-btn" data-serial="${x.serial}"></i></td>
+        <td><button class="remove-btn" data-serial="${x.serial}">Delete</button></td>
         `;
         tbody.appendChild(row);
         row.querySelector('.remove-btn').addEventListener('click', removeEntry);
